@@ -34,18 +34,18 @@ function App() {
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        color.domain(["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]);
+        color.domain(["Discordo Totalmente", "Discordo", "NCND", "Concordo", "Concordo Totalmente"]);
 
         d3.csv("raw_data.csv", function(error, data) {
 
         data.forEach(function(d) {
           // calc percentages
-          d["Strongly disagree"] = +d[1]*100/d.N;
-          d["Disagree"] = +d[2]*100/d.N;
-          d["Neither agree nor disagree"] = +d[3]*100/d.N;
-          d["Agree"] = +d[4]*100/d.N;
-          d["Strongly agree"] = +d[5]*100/d.N;
-          var x0 = -1*(d["Neither agree nor disagree"]/2+d["Disagree"]+d["Strongly disagree"]);
+          d["Discordo Totalmente"] = +d[1]*100/d.N;
+          d["Discordo"] = +d[2]*100/d.N;
+          d["NCND"] = +d[3]*100/d.N;
+          d["Concordo"] = +d[4]*100/d.N;
+          d["Concordo Totalmente"] = +d[5]*100/d.N;
+          var x0 = -1*(d["NCND"]/2+d["Discordo"]+d["Discordo Totalmente"]);
           var idx = 0;
           d.boxes = color.domain().map(function(name) { return {name: name, x0: x0, x1: x0 += +d[name], N: +d.N, n: +d[idx += 1]}; });
         });
@@ -147,8 +147,10 @@ function App() {
 
       });
   },[])
+
   return (
     <div className="App">
+      <h1>Eu estou disposto a aprender essa ferramenta, porque o conteúdo é empolgante e dinâmico.</h1>
       <div id="figure"></div>
     </div>
   );
