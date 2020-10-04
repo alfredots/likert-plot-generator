@@ -7,7 +7,7 @@ function App() {
     var d3 = window.d3;
     console.log(d3);
     var margin = {top: 50, right: 20, bottom: 10, left: 65},
-    width = 800 - margin.left - margin.right,
+    width = 1100 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
       var y = d3.scale.ordinal()
@@ -90,7 +90,8 @@ function App() {
             .attr("y", y.rangeBand()/2)
             .attr("dy", "0.5em")
             .attr("dx", "0.5em")
-            .style("font" ,"10px sans-serif")
+            .style("font" ,"16px arial")
+            .style("font-weight","bold")
             .style("text-anchor", "begin")
             .text(function(d) { return d.n !== 0 && (d.x1-d.x0)>3 ? d.n : "" });
 
@@ -111,7 +112,7 @@ function App() {
 
         var startp = svg.append("g").attr("class", "legendbox").attr("id", "mylegendbox");
         // this is not nice, we should calculate the bounding box and use that
-        var legend_tabs = [0, 120, 200, 375, 450];
+        var legend_tabs = [-80, 110, 210, 290, 400];
         var legend = startp.selectAll(".legend")
             .data(color.domain().slice())
           .enter().append("g")
@@ -129,7 +130,8 @@ function App() {
             .attr("y", 9)
             .attr("dy", ".35em")
             .style("text-anchor", "begin")
-            .style("font" ,"10px sans-serif")
+            .style("font" ,"16px arial")
+            .style("font-weight","bold")
             .text(function(d) { return d; });
 
         d3.selectAll(".axis path")
@@ -150,7 +152,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Eu estou disposto a aprender essa ferramenta, porque o conteúdo é empolgante e dinâmico.</h1>
+      <h1>ESTIMULAÇÃO DO AMBIENTE DE APRENDIZAGEM momento II</h1>
       <div id="figure"></div>
     </div>
   );

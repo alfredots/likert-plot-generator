@@ -8,3 +8,13 @@ body {
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
+.y.axis .tick{
+  font: 16px arial;
+  font-weight: bold;
+}
+
+.x.axis .tick{
+  font: 16px arial;
+  font-weight: bold;
+}
