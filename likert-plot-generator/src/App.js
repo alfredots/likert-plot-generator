@@ -152,7 +152,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ESTIMULAÇÃO DO AMBIENTE DE APRENDIZAGEM momento II</h1>
+      <h1>Avaliação de instalação e uso</h1>
       <div id="figure"></div>
     </div>
   );
